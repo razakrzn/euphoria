@@ -1,11 +1,17 @@
 import React from "react";
 import Header from "../includes/Header";
+import Sportlight from "./Sportlight";
+import OfferSection from "./OfferSection";
+import NewArival from "./NewArival";
 
 function Home() {
   return (
-    <div>
+    <>
       <Header />
-    </div>
+      <Sportlight />
+      <OfferSection />
+      <NewArival />
+    </>
   );
 }
 

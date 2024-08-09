@@ -1,14 +1,59 @@
 {
-  "users": [
+  "newarival": [
     {
       "id": 1,
-      "title": "john.doe@example.com",
-      "image": ""
+      "title": "Knitted Joggers",
+      "image": "/assets/img-1.jpg"
     },
     {
       "id": 2,
-      "name": "Jane Smith",
-      "email": "jane.smith@example.com"
+      "title": "Full Sleeve",
+      "image": "/assets/img-2.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Active T-Shirts",
+      "image": "/assets/img-3.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Urban Shirts",
+      "image": "/assets/img-4.jpg"
+    }
+  ],
+  "categoriesformen": [
+    {
+      "id": 1,
+      "image": "/assets/img-16.jpg",
+      "size": "M",
+      "title": "Raven Hoodie With Black colored Design",
+      "rating": 3.5,
+      "comments": 120,
+      "images": [
+        {
+          "image1": "assets/img-25.jpg",
+          "image2": "assets/img-26.jpg"
+        }
+      ],
+      "colour": "Red",
+      "price": 63.0
+    },
+    {
+      "id": 2,
+      "image": "/assets/img-16.jpg",
+      "size": "L",
+      "title": "Product Title 2",
+      "rating": 4.0,
+      "comments": 120,
+      "images": [
+        {
+          "image1": "User3",
+          "image2": "Good value for money.",
+          "image3": "2024-08-03"
+        }
+      ],
+      "colour": "Blue",
+      "price": 34.99
     }
   ]
 }
