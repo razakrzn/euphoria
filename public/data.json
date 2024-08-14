@@ -23,37 +23,174 @@
   ],
   "categoriesformen": [
     {
-      "id": 1,
+      "id": 5,
+      "image": "/assets/img-5.jpg",
+      "title": "shirt"
+    },
+    {
+      "id": 6,
+      "image": "/assets/img-6.jpg",
+      "title": "Printed T-Shirts"
+    },
+    {
+      "id": 7,
+      "image": "/assets/img-7.jpg",
+      "title": "Plain T-Shirt"
+    },
+    {
+      "id": 8,
+      "image": "/assets/img-8.jpg",
+      "title": "Polo T-Shirt"
+    },
+    {
+      "id": 9,
+      "image": "/assets/img-9.jpg",
+      "title": "Hoodies & Sweetshirt"
+    },
+    {
+      "id": 10,
+      "image": "/assets/img-10.jpg",
+      "title": "Jeans"
+    },
+    {
+      "id": 11,
+      "image": "/assets/img-01.jpeg",
+      "title": "Activewear"
+    },
+    {
+      "id": 12,
+      "image": "/assets/img-11.jpg",
+      "title": "Boxers"
+    }
+  ],
+  "categoriesforwomen": [
+    {
+      "id": 13,
+      "image": "/assets/img-12.jpg",
+      "title": "Hoodies & Sweetshirt"
+    },
+    {
+      "id": 14,
+      "image": "/assets/img-13.jpg",
+      "title": "Coats & Parkas"
+    },
+    {
+      "id": 15,
+      "image": "/assets/img-14.jpg",
+      "title": "Tees & T-Shirt"
+    },
+    {
+      "id": 16,
+      "image": "/assets/img-15.jpg",
+      "title": "Boxers"
+    }
+  ],
+  "limelight": [
+    {
+      "id": 17,
       "image": "/assets/img-16.jpg",
-      "size": "M",
+      "title": "Black Sweatshirt with ....",
+      "brand": "Jhanvi’s  Brand",
+      "price": "$123.00"
+    },
+    {
+      "id": 18,
+      "image": "/assets/img-17.jpg",
+      "title": "line Pattern Black H...",
+      "brand": "AS’s  Brand",
+      "price": "$37.00"
+    },
+    {
+      "id": 19,
+      "image": "/assets/img-18.jpg",
+      "title": "Black Shorts",
+      "brand": "MM’s  Brand",
+      "price": "$37.00"
+    },
+    {
+      "id": 20,
+      "image": "/assets/img-19.jpg",
+      "title": "Levender Hoodie with ....",
+      "brand": "Nike’s  Brand",
+      "price": "$119.00"
+    }
+  ],
+
+  "similarproducts": [
+    {
+      "id": 21,
+      "image": "/assets/img-20.jpg",
+      "title": "White T-Shirt",
+      "brand": "Priya’s  Brand",
+      "price": "$13.00"
+    },
+    {
+      "id": 22,
+      "image": "/assets/img-22.jpg",
+      "title": "Dark Green Sweatshirt....",
+      "brand": "Roboto’s  Brand",
+      "price": "$127.00"
+    },
+    {
+      "id": 23,
+      "image": "/assets/img-23.jpg",
+      "title": "Levender Sweatshirt ....",
+      "brand": "Jhanvi’s  Brand",
+      "price": "$133.00"
+    },
+    {
+      "id": 24,
+      "image": "/assets/img-24.jpg",
+      "title": "Urban jacket with white ....",
+      "brand": "Sagar’s  Brand",
+      "price": "$79.00"
+    }
+  ],
+  "productdetails": [
+    {
+      "id": 17,
+      "image": "/assets/img-16.jpg",
       "title": "Raven Hoodie With Black colored Design",
       "rating": 3.5,
       "comments": 120,
+      "sizes": ["XS", "S", "M", "L", "XL"],
+      "colors": ["#3C4242", "#EDD146", "#EB84B0", "#9C1F35"],
+      "price": 63.0,
       "images": [
-        {
-          "image1": "assets/img-25.jpg",
-          "image2": "assets/img-26.jpg"
-        }
-      ],
-      "colour": "Red",
-      "price": 63.0
+        "/assets/img-25.jpg",
+        "/assets/img-16.jpg",
+        "/assets/img-26.jpg"
+      ]
     },
     {
-      "id": 2,
-      "image": "/assets/img-16.jpg",
-      "size": "L",
-      "title": "Product Title 2",
-      "rating": 4.0,
+      "id": 18,
+      "image": "/assets/img-17.jpg",
+      "title": "line Pattern Black",
+      "rating": 3.5,
       "comments": 120,
+      "sizes": ["XS", "S", "M", "L"],
+      "colors": ["#3C4242", "#EDD146", "#EB84B0", "#9C1F35"],
+      "price": 37.0,
       "images": [
-        {
-          "image1": "User3",
-          "image2": "Good value for money.",
-          "image3": "2024-08-03"
-        }
-      ],
-      "colour": "Blue",
-      "price": 34.99
+        "/assets/img-25.jpg",
+        "/assets/img-16.jpg",
+        "/assets/img-26.jpg"
+      ]
+    },
+    {
+      "id": 19,
+      "image": "/assets/img-18.jpg",
+      "title": "line Pattern Black",
+      "rating": 3.5,
+      "comments": 120,
+      "sizes": ["XS", "S", "M", "L"],
+      "colors": ["#3C4242", "#EDD146", "#EB84B0", "#9C1F35"],
+      "price": 37.0,
+      "images": [
+        "/assets/img-25.jpg",
+        "/assets/img-16.jpg",
+        "/assets/img-26.jpg"
+      ]
     }
   ]
 }

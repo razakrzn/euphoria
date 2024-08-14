@@ -8,27 +8,31 @@ function Header() {
       <HeaderContainer>
         <HeaderWrapper>
           <LogoContainer>
-            <Image
-              src={require("../../components/assets/Logo.svg").default}
-              alt="Logo image"
-            />
+            <LogoLink to="/">
+              <h1>
+                <Image
+                  src={require("../../components/assets/Logo.svg").default}
+                  alt="Logo image"
+                />
+              </h1>
+            </LogoLink>
           </LogoContainer>
           <Navbar>
             <Menu>
               <MenuItem>
-                <MenuLink href="#">Shop</MenuLink>
+                <MenuLink to="#">Shop</MenuLink>
               </MenuItem>
               <MenuItem>
-                <MenuLink href="#">Men</MenuLink>
+                <MenuLink to="#">Men</MenuLink>
               </MenuItem>
               <MenuItem>
-                <MenuLink href="#">Women</MenuLink>
+                <MenuLink to="/product/:productId">Women</MenuLink>
               </MenuItem>
               <MenuItem>
-                <MenuLink href="#">Combos</MenuLink>
+                <MenuLink to="#">Combos</MenuLink>
               </MenuItem>
               <MenuItem>
-                <MenuLink href="#">Joggers</MenuLink>
+                <MenuLink to="#">Joggers</MenuLink>
               </MenuItem>
             </Menu>
           </Navbar>
@@ -88,6 +92,10 @@ const HeaderWrapper = styled.div`
 
 const LogoContainer = styled.div``;
 
+const LogoLink = styled(Link)`
+  text-decoration: none;
+`;
+
 const Image = styled.img`
   width: 100%;
   display: block;
@@ -103,7 +111,9 @@ const MenuItem = styled.li``;
 const MenuLink = styled(Link)`
   text-decoration: none;
   color: #807d7e;
-  &:focus {
+  &:hover,
+  &:focus,
+  &:active {
     color: #3c4242;
   }
 `;

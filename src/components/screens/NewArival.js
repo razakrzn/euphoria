@@ -3,6 +3,10 @@ import styled from "styled-components";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 function NewArival() {
   const [items, setItems] = useState([]);
 
@@ -14,36 +18,64 @@ function NewArival() {
       })
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
+  var settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    initialSlide: 0,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
 
   return (
-    <div>
+    <>
       <Container>
         <HeadWrapper>
           <HeadIcon />
           <Heading>New Arrivals</Heading>
         </HeadWrapper>
-        <Slider>
-          <Button>
-            <Image
-              src={require("../../components/assets/arrow-left.svg").default}
-            />
-          </Button>
-          {items.map((item) => (
-            <Card key={item.id}>
-              <ImageWrapper>
-                <Image src={item.image} alt={item.title} />
-              </ImageWrapper>
-              <Title>{item.title}</Title>
-            </Card>
-          ))}
-          <Button>
-            <Image
-              src={require("../../components/assets/arrow-right.svg").default}
-            />
-          </Button>
-        </Slider>
+        <SliderContainer>
+          <Slider {...settings}>
+            {items.map((item) => (
+              <Card key={item.id}>
+                <ImageWrapper>
+                  <Image src={item.image} alt={item.title} />
+                </ImageWrapper>
+                <Title>{item.title}</Title>
+              </Card>
+            ))}
+          </Slider>
+        </SliderContainer>
       </Container>
-    </div>
+    </>
   );
 }
 
@@ -69,23 +101,17 @@ const Heading = styled.h3`
   line-height: 33.5px;
   letter-spacing: 0.02em;
 `;
-const Slider = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-const Button = styled.button`
-  background-color: transparent;
-  border: none;
-`;
 
-const Card = styled(Link)`
+const Card = styled.div``;
+const ImageWrapper = styled(Link)`
   text-decoration: none;
+  width: 262.81px;
+  height: 262.81px;
+  border-radius: 12px;
 `;
-const ImageWrapper = styled.div``;
 const Image = styled.img`
-  // width: 100%;
-  // display: block;
+  width: 100%;
+  display: block;
 `;
 const Title = styled.h6`
   font-size: 20px;
@@ -94,5 +120,44 @@ const Title = styled.h6`
   letter-spacing: 0.01em;
   color: #3c4242;
 `;
+
+const SliderContainer = styled.div`
+  position: relative;
+  margin: 0 auto;
+`;
+
+const CustomArrow = styled.div`
+  position: absolute;
+  top: 30%;
+  transform: translateY(50%);
+  z-index: 1;
+  cursor: pointer;
+`;
+
+const SamplePrevArrow = (props) => {
+  const { style, onClick } = props;
+  return (
+    <CustomArrow
+      className="custom-prev"
+      style={{ ...style, left: "0" }} /* Position on the left side */
+      onClick={onClick}
+    >
+      <img src={require("../assets/arrow-left.svg").default} alt="Previous" />
+    </CustomArrow>
+  );
+};
+
+const SampleNextArrow = (props) => {
+  const { style, onClick } = props;
+  return (
+    <CustomArrow
+      className="custom-next"
+      style={{ ...style, right: "0" }} /* Position on the right side */
+      onClick={onClick}
+    >
+      <img src={require("../assets/arrow-right.svg").default} alt="Next" />
+    </CustomArrow>
+  );
+};
 
 export default NewArival;
