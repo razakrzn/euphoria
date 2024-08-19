@@ -18,7 +18,9 @@ function Promotion() {
             </Text>
             <Button>Shop Now</Button>
           </InfoWithBg>
-          <BgImage></BgImage>
+          <BgImage>
+            <Image src={bgImage2} alt="Background image" />
+          </BgImage>
         </Wrapper>
       </Container>
     </>
@@ -30,36 +32,67 @@ const Container = styled.div`
   margin: 0 auto;
   max-width: 1280px;
   padding: 60px 0;
+  @media (max-width: 768px) {
+    padding: 30px 0;
+  }
 `;
 
 const Wrapper = styled.div`
+  width: 100%;
   display: flex;
   border-radius: 10px;
+
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+  }
 `;
 
 const InfoWithBg = styled.div`
   width: 50%;
   color: #fff;
-  padding: 160px 60px;
+  padding: 150px 60px;
   background-image: url(${bgImage1});
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
+
+  @media (max-width: 1280px) {
+    padding: 60px 60px;
+  }
+  @media (max-width: 980px) {
+  }
+  @media (max-width: 768px) {
+    width: auto;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 0;
+  }
+  @media (max-width: 768px) {
+    padding: 30px;
+  }
 `;
 
 const Title = styled.h1`
   font-size: 34px;
+  margin: 0;
   font-weight: 800;
   line-height: 50px;
-  letter-spacing: 0.20758114755153656px;
+  @media (max-width: 680px) {
+    font-size: 24px;
+  }
 `;
 
 const Text = styled.h4`
   font-size: 20px;
   font-weight: 300;
   line-height: 24px;
+  @media (max-width: 680px) {
+    font-size: 16px;
+  }
+  @media (max-width: 480px) {
+    font-size: 12px;
+  }
 `;
 
 const Button = styled(Link)`
@@ -70,16 +103,40 @@ const Button = styled(Link)`
   background-color: #fff;
   text-decoration: none;
   margin-top: 20px;
+  &:hover {
+    transition: all 3;
+    transform: scale(1.1); /* Zooms the wrapper */
+  }
+  @media (max-width: 480px) {
+    padding: 12px 24px 12px 24px;
+    margin: 0px;
+  }
 `;
 
 const BgImage = styled.div`
-  width: 50%;
-  background-image: url(${bgImage2});
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  overflow: hidden;
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 320px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+  }
+  @media (max-width: 680px) {
+    height: 263px;
+  }
+`;
+
+const Image = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  @media (max-width: 768px) {
+    object-fit: cover;
+    object-position: center 16%;
+  }
 `;
 
 export default Promotion;

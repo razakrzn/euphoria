@@ -196,56 +196,101 @@ const Container = styled.div`
   margin: 0 auto;
   max-width: 1280px;
   padding: 60px 0;
+  @media (max-width: 980px) {
+    padding: 30px 0;
+  }
 `;
 const Wrapper = styled.div``;
 const MenuContainer = styled.div`
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
   max-width: 1280px;
+  @media (max-width: 980px) {
+    width: 90%;
+  }
 `;
 const Menu = styled.div`
-  width: 100%;
   display: flex;
-  justify-content: space-between;
   gap: 40px;
+  justify-content: space-between;
+  @media (max-width: 980px) {
+    gap: 35px;
+  }
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+    gap: 20px;
+
+    & > ul:last-child {
+      // width: 63%;
+    }
+  }
+  @media (max-width: 680px) {
+    text-align: center;
+  }
 `;
 const MenuItem = styled.ul`
-  margin-top: 0;
+  margin: 0;
   padding: 0;
   list-style-type: none;
   color: #f6f6f6;
+  @media (max-width: 768px) {
+    width: calc(50% - 10px);
+    }
+  }
 `;
 const MenuList = styled.li``;
 const MenuTitle = styled.h3`
   font-size: 28px;
   font-weight: 700;
   line-height: 61.99px;
+  margin: 0;
+
+  @media (max-width: 980px) {
+    font-size: 24px;
+  }
+  @media (max-width: 480px) {
+    font-size: 22px;
+  }
 `;
 const MenuLink = styled(Link)`
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
-  line-height: 39.04px;
+  line-height: 38px;
   text-decoration: none;
   color: #f6f6f6;
+  @media (max-width: 680px) {
+    line-height: 32px;
+    font-size: 14px;
+    text-align: left;
+  }
 `;
 const MediaSection = styled.div`
   border-bottom: 1px solid #bebcbd;
 `;
 const MediaWrapper = styled.div`
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
   max-width: 1280px;
   display: flex;
   justify-content: space-between;
-  padding-bottom: 50px;
+  padding: 30px 0;
+  @media (max-width: 680px) {
+    flex-direction: column;
+    justify-content: center;
+  }
 `;
 const SocialMediaIconContainer = styled.div`
   display: flex;
+  @media (max-width: 680px) {
+    justify-content: center;
+  }
 `;
 const Icons = styled.div`
   display: flex;
   align-items: flex-end;
   gap: 20px;
+  @media (max-width: 680px) {
+  }
 `;
 const MediaLinks = styled(Link)``;
 const SocialMediaIcon = styled.span`
@@ -272,13 +317,18 @@ const Title = styled.h2`
   font-size: 28.58px;
   font-weight: 700;
   color: #f6f6f6;
+  @media (max-width: 680px) {
+    text-align: center;
+  }
 `;
-const AppIcon = styled.div``;
+const AppIcon = styled(Link)``;
 const AppImage = styled.img`
   width: 100%;
   display: block;
 `;
-const TextContainer = styled.div``;
+const TextContainer = styled(Link)`
+  text-decoration: none;
+`;
 const P = styled.p`
   color: #ffffff;
   margin: 0px;
@@ -296,35 +346,57 @@ const CategorySection = styled.div`
 `;
 
 const CategoryWrapper = styled.div`
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
   max-width: 1280px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media (max-width: 980px) {
+    width: 90%;
+  }
 `;
 const CategoryTitle = styled.h2`
   font-size: 28.58px;
   font-weight: 700;
   color: #f6f6f6;
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
+  @media (max-width: 680px) {
+    font-size: 18px;
+  }
+  @media (max-width: 480px) {
+    font-size: 16px;
+  }
 `;
 const OptiomButton = styled.button`
   border: none;
   background: none;
 `;
 const OptionIcon = styled.span``;
-const Arrow = styled.img``;
+const Arrow = styled.img`
+  width: 100%;
+  display: block;
+`;
 const BottomWrapper = styled.div`
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
   max-width: 1280px;
 `;
 const Info = styled.p`
+  margin: 0;
   padding-top: 60px;
   font-size: 18px;
   font-weight: 700;
   text-align: center;
   color: #ffffff;
+  @media (max-width: 980px) {
+    padding-top: 30px;
+  }
+  @media (max-width: 680px) {
+    font-size: 14px;
+  }
 `;
 
 export default Footer;

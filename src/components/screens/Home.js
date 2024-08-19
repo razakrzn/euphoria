@@ -4,7 +4,7 @@ import Sportlight from "./Sportlight";
 import OfferSection from "./OfferSection";
 import NewArival from "./NewArival";
 import Promotion from "./Promotion";
-import CatogeriesForMen from "./CatogeriesForMen";
+import CatogeriesForMen from "./CatogoriesForMen";
 import CategoriesForWomen from "./CategoriesForWomen";
 import BrandsDeal from "./BrandsDeal";
 import TheLimelight from "./TheLimelight";

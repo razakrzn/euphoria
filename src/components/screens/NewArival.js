@@ -18,7 +18,7 @@ function NewArival() {
       })
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
-  var settings = {
+  var settings1 = {
     dots: false,
     infinite: true,
     speed: 500,
@@ -29,8 +29,9 @@ function NewArival() {
     prevArrow: <SamplePrevArrow />,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 980,
         settings: {
+          dots: false,
           slidesToShow: 3,
           slidesToScroll: 3,
           infinite: true,
@@ -40,6 +41,7 @@ function NewArival() {
       {
         breakpoint: 600,
         settings: {
+          dots: false,
           slidesToShow: 2,
           slidesToScroll: 2,
           initialSlide: 2,
@@ -48,6 +50,7 @@ function NewArival() {
       {
         breakpoint: 480,
         settings: {
+          dots: false,
           slidesToShow: 1,
           slidesToScroll: 1,
         },
@@ -62,8 +65,8 @@ function NewArival() {
           <HeadIcon />
           <Heading>New Arrivals</Heading>
         </HeadWrapper>
-        <SliderContainer>
-          <Slider {...settings}>
+        <SliderContainer className="slider-container first-slider">
+          <Slider {...settings1}>
             {items.map((item) => (
               <Card key={item.id}>
                 <ImageWrapper>
@@ -100,14 +103,16 @@ const Heading = styled.h3`
   font-weight: 600;
   line-height: 33.5px;
   letter-spacing: 0.02em;
+  @media (max-width: 480px) {
+    font-size: 28px;
+  }
 `;
 
 const Card = styled.div``;
 const ImageWrapper = styled(Link)`
   text-decoration: none;
-  width: 262.81px;
-  height: 262.81px;
   border-radius: 12px;
+  transition: all 0.3s ease;
 `;
 const Image = styled.img`
   width: 100%;
@@ -119,6 +124,19 @@ const Title = styled.h6`
   line-height: 24px;
   letter-spacing: 0.01em;
   color: #3c4242;
+  margin: 15px 0;
+
+  @media (min-width: 768px) {
+    font-size: 16px;
+  }
+
+  @media (min-width: 680px) {
+    font-size: 14px;
+  }
+  @media (min-width: 480px) {
+    font-size: 14px;
+    text-align: center;
+  }
 `;
 
 const SliderContainer = styled.div`

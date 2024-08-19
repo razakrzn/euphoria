@@ -51,7 +51,10 @@ const Container = styled.div`
   width: 90%;
   margin: 0 auto;
   max-width: 1280px;
-  padding: 60px 0;
+  padding: 30px 0;
+  @media (max-width: 480px) {
+    padding-top: 0;
+  }
 `;
 
 const TitleWrapper = styled.div`
@@ -59,6 +62,12 @@ const TitleWrapper = styled.div`
   align-items: center;
   gap: 15px;
   margin-bottom: 60px;
+  @media (max-width: 768px) {
+    margin-bottom: 30px;
+  }
+  @media (max-width: 480px) {
+    margin-bottom: 0px;
+  }
 `;
 const HeadIcon = styled.span`
   width: 6px;
@@ -71,30 +80,46 @@ const Heading = styled.h3`
   font-weight: 600;
   line-height: 33.5px;
   letter-spacing: 0.02em;
+  @media (max-width: 480px) {
+    font-size: 28px;
+  }
 `;
 const CardContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
   gap: 40px;
+
+  @media (max-width: 680px) {
+    flex-wrap: wrap;
+  }
 `;
 
 const Card = styled.div`
-  width: 100%;
   font-size: 16px;
   font-weight: 600;
   line-height: 19.2px;
   color: #3c4242;
+  @media (max-width: 680px) {
+  }
+  @media (max-width: 480px) {
+    width: calc(45% - 0px);
+  }
+  @media (max-width: 320px) {
+    width: calc(43% - 0px);
+  }
 `;
 
 const ImageWrapper = styled(Link)`
-  width: 100%;
   text-decoration: none;
   display: inline-block;
   margin-bottom: 40px;
   transition: all 0.3s ease;
   &:hover {
     transform: scale(1.1); /* Zooms the wrapper */
+  }
+  @media (max-width: 768px) {
+    margin-bottom: 20px;
   }
 `;
 const Image = styled.img`
@@ -107,6 +132,10 @@ const InfoWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 768px) {
+    align-items: flex-start;
+  }
 `;
 const TextWrapper = styled.div``;
 const Title = styled(Link)`
@@ -117,30 +146,40 @@ const Title = styled(Link)`
   font-weight: 600;
   line-height: 19.2px;
   color: #3c4242;
+  @media (max-width: 768px) {
+    font-size: 14px;
+    margin-top: 0;
+  }
+  @media (max-width: 480px) {
+    margin: 0;
+  }
+  @media (max-width: 320px) {
+    font-size: 14px;
+  }
 `;
 const Explore = styled.p`
   margin-top: 0px;
   color: #807d7e;
   font-size: 16px;
   font-weight: 600;
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
+  @media (max-width: 480px) {
+  }
 `;
 const Button = styled.button`
   padding: 0;
   display: flex;
-  justify-content: flex-end;
   align-items: center;
   background: transparent;
   border: none;
-  width: 82.31px;
-  height: 36.58px;
   cursor: pointer;
 `;
-const IconArrow = styled.div``;
+const IconArrow = styled.span``;
 const StyledIcon = styled(Icon)`
-  width: 50px;
-  height: 50px;
   fill: #797979;
-  width: 17.88px;
+  width: 18px;
 
   &:hover {
     fill: #797979; // Changes the color on hover

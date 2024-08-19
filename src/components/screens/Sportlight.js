@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import bgImage from "../../components/assets/bg-1.jpg";
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "./SwiperStyles.css";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -17,11 +16,16 @@ function Sportlight() {
       <Swiper
         cssMode={true}
         navigation={true}
-        pagination={true}
+        pagination={{ clickable: true }}
         mousewheel={true}
         keyboard={true}
         modules={[Navigation, Pagination, Mousewheel, Keyboard]}
         className="mySwiper"
+        breakpoints={{
+          480: {
+            navigation: false, // Disable navigation at 480px or less
+          },
+        }}
       >
         <SwiperSlide>
           <Background>
@@ -35,7 +39,7 @@ function Sportlight() {
             </Container>
           </Background>
         </SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
+        <SwiperSlide style={{ background: "#F6F6F6" }}>Slide 2</SwiperSlide>
       </Swiper>
     </>
   );
@@ -46,11 +50,15 @@ const Background = styled.div`
   background-size: cover;
   background-position: center;
   height: 716px;
+  @media (max-width: 768px) {
+    padding: 60px 0;
+    height: 100%;
+  }
 `;
 
 const Container = styled.div`
   width: 90%;
-  padding: 129px 0;
+  height: 100%;
   margin: 0 auto;
   max-width: 1280px;
   display: flex;
@@ -58,23 +66,42 @@ const Container = styled.div`
 `;
 
 const Info = styled.div`
+  max-width: 1230px;
+  width: 80%;
+  margin: 0 auto;
   color: #fff;
-  width: 439px;
-  height: 455px;
-  margin-left: 193px;
+  @media (max-width: 480px) {
+    width: 100%;
+  }
 `;
 
 const Category = styled.h5`
+  margin: 0;
   color: #fff;
   font-size: 32px;
+  @media (max-width: 480px) {
+    font-size: 28px;
+  }
 `;
 
 const Heading = styled.h1`
+  width: 439px;
   font-size: 78px;
   font-weight: 800;
   line-height: 93.62px;
   letter-spacing: 0.31476014852523804px;
   text-align: left;
+  @media (max-width: 768px) {
+    font-size: 54px;
+    line-height: 68px;
+    width: 350px;
+    margin: 20px 0;
+  }
+  @media (max-width: 480px) {
+    width: 250px;
+    line-height: 42px;
+    font-size: 42px;
+  }
 `;
 
 const Color = styled.h4`
@@ -83,13 +110,21 @@ const Color = styled.h4`
   line-height: 47.21px;
   letter-spacing: 0.31476014852523804px;
   text-align: left;
+
+  @media (max-width: 768px) {
+    margin: 0;
+    margin-bottom: 30px;
+  }
+  @media (max-width: 480px) {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
 `;
 
 const Button = styled(Link)`
+  display: inline-block;
   text-decoration: none;
   background-color: #fff;
-  width: 250px;
-  height: 61px;
   padding: 16px 72px 16px 72px;
   border-radius: 8px;
   font-size: 24px;
@@ -97,6 +132,13 @@ const Button = styled(Link)`
   line-height: 28.8px;
   text-align: center;
   color: #3c4242;
+  @media (max-width: 768px) {
+    font-size: 16px;
+    padding: 10px 40px;
+  }
+  @media (max-width: 480px) {
+    padding: 8px 20px;
+  }
 `;
 
 export default Sportlight;

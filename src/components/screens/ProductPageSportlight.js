@@ -1,191 +1,204 @@
 import React from "react";
-import Header from "../includes/Header";
 import { Link, NavLink, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 
 function ProductPageSportlight() {
   const { id } = useParams();
-  console.log({ id }); // Check if id is defined
+  console.log({ id });
 
-  const [productDetails, setProductDetails] = useState([]);
+  const [selectedProduct, setSelectedProduct] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
     fetch("/data.json")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
-        setProductDetails(data.productdetails);
-        console.log(data.productdetails);
-        const product = data.productdetails.find((item) => item.id === id);
+        const productId = Number(id);
+        const product = data.productdetails.find(
+          (item) => item.id === productId
+        );
+
         if (product) {
+          setSelectedProduct(product);
           setSelectedImage(product.image);
+        } else {
+          console.error("Product not found");
         }
       })
       .catch((error) => console.error("Error fetching data:", error));
-  }, []);
+  }, [id]);
 
   const handleImageClick = (image) => {
     setSelectedImage(image);
   };
 
+  if (!selectedProduct) {
+    return <div>Loading...</div>;
+  }
+
   return (
-    <>
-      <Container>
-        {productDetails.map((item) => (
-          <Wrapper key={item.id}>
-            <ImageSection>
-              <LeftImgCategory>
-                <ImageCategoryWrapper>
-                  {item.images.map((image, index) => (
-                    <ImageItem key={index}>
-                      <ImageLink onClick={() => handleImageClick(image)}>
-                        <Image src={image} alt={item.title} />
-                      </ImageLink>
-                    </ImageItem>
-                  ))}
-                </ImageCategoryWrapper>
-              </LeftImgCategory>
-              <MainImageWrapper>
-                <MainImage src={selectedImage || item.image} alt={item.title} />
-              </MainImageWrapper>
-            </ImageSection>
-            <ProductInfo>
-              <ProductInfoWrapper>
-                <MenuContainer>
-                  <Navlink to="/">
-                    <Span>Shop</Span>
-                    <Span>
-                      <StyledImage
-                        src={require("../assets/right-arrow-light.svg").default}
-                        alt="arrow"
-                      />
-                    </Span>
-                  </Navlink>
-                  <Navlink to={`/product/${id}`}>
-                    <Span>Women</Span>
-                    <Span>
-                      <StyledImage
-                        src={require("../assets/right-arrow-light.svg").default}
-                        alt="arrow"
-                      />
-                    </Span>
-                  </Navlink>
-                  <Navlink>
-                    <Span>Top</Span>
-                  </Navlink>
-                </MenuContainer>
-                <Title>{item.title}</Title>
-                <Ratig>
-                  <RatingValue>{item.rating}</RatingValue>
-                  <CommentIcon>
-                    <img
-                      src={require("../assets/message.svg").default}
-                      alt="arrow"
-                    />
-                  </CommentIcon>
-                  <CommentCount>{item.comments} Comments</CommentCount>
-                </Ratig>
-                <SizeSelection>
-                  <SizeSpan>Select Size</SizeSpan>
-                  <SizeGuidSpan>Size Guide</SizeGuidSpan>
-                  <span>
-                    <img
-                      src={require("../assets/arrow-right.svg").default}
-                      alt="arrow"
-                    />
-                  </span>
-                  <SizeOptions>
-                    {item.sizes.map((size) => (
-                      <SizeButton key={size}>{size}</SizeButton> // Use item.sizes to render sizes
-                    ))}
-                  </SizeOptions>
-                </SizeSelection>
-                <ColorOption>
-                  <ColorSpan>Colours Available</ColorSpan>
-                  <ColorButtonsContainer>
-                    {item.colors.map((color) => (
-                      <CustomPadding key={color}>
-                        <ColorButton color={color} />
-                      </CustomPadding>
-                    ))}
-                  </ColorButtonsContainer>
-                </ColorOption>
-                <PriceAndCartContiner>
-                  <CartButton>
-                    <span
-                      style={{
-                        marginRight: "10px",
-                        width: "14px",
-                        height: "14px",
-                      }}
-                    >
-                      <img
-                        src={require("../assets/cart-1.svg").default}
-                        alt="arrow"
-                      />
-                    </span>
-                    <span>Add to Cart</span>
-                  </CartButton>
-                  <PriceSpan>${item.price}</PriceSpan>
-                </PriceAndCartContiner>
-              </ProductInfoWrapper>
-              <ProductShipingDetails>
-                <ShippingInfo>
-                  <Item>
-                    <ShippingIcon>
-                      <img
-                        src={require("../assets/credit card.svg").default}
-                        alt="shipping"
-                      />
-                    </ShippingIcon>
-                    <ShippingText>Secure payment</ShippingText>
-                  </Item>
-                  <Item>
-                    <ShippingIcon>
-                      <img
-                        src={require("../assets/Size&Fit.svg").default}
-                        alt="shipping"
-                      />
-                    </ShippingIcon>
-                    <ShippingText>Size & Fit</ShippingText>
-                  </Item>
-                  <Item>
-                    <ShippingIcon>
-                      <img
-                        src={require("../assets/truck.svg").default}
-                        alt="shipping"
-                      />
-                    </ShippingIcon>
-                    <ShippingText>Free shipping</ShippingText>
-                  </Item>
-                  <Item>
-                    <ShippingIcon>
-                      <img
-                        src={
-                          require("../assets/Free-Shipping&Returns.svg").default
-                        }
-                        alt="shipping"
-                      />
-                    </ShippingIcon>
-                    <ShippingText>Free Shipping & Returns</ShippingText>
-                  </Item>
-                </ShippingInfo>
-              </ProductShipingDetails>
-            </ProductInfo>
-          </Wrapper>
-        ))}
-      </Container>
-    </>
+    <Container>
+      <Wrapper>
+        <ImageSection>
+          <LeftImgCategory>
+            <ImageCategoryWrapper>
+              {selectedProduct.images.map((image, index) => (
+                <ImageItem key={index}>
+                  <ImageLink onClick={() => handleImageClick(image)}>
+                    <Image src={image} alt={selectedProduct.title} />
+                  </ImageLink>
+                </ImageItem>
+              ))}
+            </ImageCategoryWrapper>
+          </LeftImgCategory>
+          <MainImageWrapper>
+            <MainImage
+              src={selectedImage || selectedProduct.image}
+              alt={selectedProduct.title}
+            />
+          </MainImageWrapper>
+        </ImageSection>
+        <ProductInfo>
+          <ProductInfoWrapper>
+            <MenuContainer>
+              <Navlink to="/">
+                <Span>Shop</Span>
+                <Span>
+                  <StyledImage
+                    src={require("../assets/right-arrow-light.svg").default}
+                    alt="arrow"
+                  />
+                </Span>
+              </Navlink>
+              <Navlink>
+                <Span>Women</Span>
+                <Span>
+                  <StyledImage
+                    src={require("../assets/right-arrow-light.svg").default}
+                    alt="arrow"
+                  />
+                </Span>
+              </Navlink>
+              <Navlink>
+                <Span>Top</Span>
+              </Navlink>
+            </MenuContainer>
+            <Title>{selectedProduct.title}</Title>
+            <Ratig>
+              <RatingValue>{selectedProduct.rating}</RatingValue>
+              <CommentIcon>
+                <img
+                  src={require("../assets/message.svg").default}
+                  alt="comments"
+                />
+              </CommentIcon>
+              <CommentCount>{selectedProduct.comments} Comments</CommentCount>
+            </Ratig>
+            <SizeSelection>
+              <SizeSpan>Select Size</SizeSpan>
+              <SizeGuidSpan>Size Guide</SizeGuidSpan>
+              <span>
+                <img
+                  src={require("../assets/arrow-right.svg").default}
+                  alt="arrow"
+                />
+              </span>
+              <SizeOptions>
+                {selectedProduct.sizes.map((size) => (
+                  <SizeButton key={size}>{size}</SizeButton>
+                ))}
+              </SizeOptions>
+            </SizeSelection>
+            <ColorOption>
+              <ColorSpan>Colours Available</ColorSpan>
+              <ColorButtonsContainer>
+                {selectedProduct.colors.map((color) => (
+                  <CustomPadding key={color}>
+                    <ColorButton color={color} />
+                  </CustomPadding>
+                ))}
+              </ColorButtonsContainer>
+            </ColorOption>
+            <PriceAndCartContiner>
+              <CartButton>
+                <span
+                  style={{
+                    marginRight: "10px",
+                    width: "14px",
+                    height: "14px",
+                  }}
+                >
+                  <img
+                    src={require("../assets/cart-1.svg").default}
+                    alt="cart"
+                  />
+                </span>
+                <span>Add to Cart</span>
+              </CartButton>
+              <PriceSpan>${selectedProduct.price}</PriceSpan>
+            </PriceAndCartContiner>
+          </ProductInfoWrapper>
+          <ProductShipingDetails>
+            <ShippingInfo>
+              <Item>
+                <ShippingIcon>
+                  <img
+                    src={require("../assets/credit card.svg").default}
+                    alt="secure payment"
+                  />
+                </ShippingIcon>
+                <Text>Secure payment</Text>
+              </Item>
+              <Item>
+                <ShippingIcon>
+                  <img
+                    src={require("../assets/Size&Fit.svg").default}
+                    alt="size & fit"
+                  />
+                </ShippingIcon>
+                <Text>Size & Fit</Text>
+              </Item>
+              <Item>
+                <ShippingIcon>
+                  <img
+                    src={require("../assets/truck.svg").default}
+                    alt="free shipping"
+                  />
+                </ShippingIcon>
+                <Text>Free shipping</Text>
+              </Item>
+              <Item>
+                <ShippingIcon>
+                  <img
+                    src={require("../assets/Free-Shipping&Returns.svg").default}
+                    alt="free shipping & returns"
+                  />
+                </ShippingIcon>
+                <Text>Free Shipping & Returns</Text>
+              </Item>
+            </ShippingInfo>
+          </ProductShipingDetails>
+        </ProductInfo>
+      </Wrapper>
+    </Container>
   );
 }
 
-const Container = styled.div``;
+const Container = styled.div`
+  @media (max-width: 980px) {
+    width: 90%;
+    margin: 0 auto;
+    max-width: 1280px;
+  }
+`;
 
 const Wrapper = styled.div`
   display: flex;
   gap: 50px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const ImageSection = styled.div`
@@ -195,6 +208,11 @@ const ImageSection = styled.div`
   align-items: center;
   gap: 30px;
   background: #f6f6f6;
+  @media (max-width: 980px) {
+    padding-left: 0;
+    flex-direction: column-reverse;
+    background: #fff;
+  }
 `;
 
 const LeftImgCategory = styled.div``;
@@ -202,14 +220,19 @@ const LeftImgCategory = styled.div``;
 const ImageCategoryWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   flex-direction: column;
   gap: 20px;
+  @media (max-width: 980px) {
+    flex-direction: row;
+  }
 `;
 
 const ImageItem = styled.div`
   width: 68px;
   height: 68px;
   border-radius: 9px;
+  overflow: hidden;
   transition: all 0.3s ease;
   &:hover,
   &:focus {
@@ -221,7 +244,9 @@ const ImageItem = styled.div`
 `;
 
 const ImageLink = styled(Link)`
+  display: inline;
   text-decoration: none;
+  overflow: hidden;
 `;
 
 const Image = styled.img`
@@ -229,24 +254,34 @@ const Image = styled.img`
   height: 100%;
   object-fit: cover;
   display: block;
-  border-radius: 9px;
 `;
 
 const MainImageWrapper = styled.div`
   width: 520px;
-  height: 785px;
+  height: 100%;
+  overflow: hidden;
+  @media (max-width: 480px) {
+    width: 100%;
+  }
 `;
 
 const MainImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transform: scale(1.1);
   display: block;
 `;
 
 const ProductInfo = styled.div`
   width: 534px;
   margin-right: 80px;
+  @media (max-width: 980px) {
+    margin: 0;
+  }
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const ProductInfoWrapper = styled.div`
@@ -257,6 +292,9 @@ const ProductInfoWrapper = styled.div`
 const MenuContainer = styled.div`
   display: flex;
   gap: 20px;
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 const Navlink = styled(NavLink)`
   display: inline-block;
@@ -280,12 +318,18 @@ const Title = styled.h1`
   font-size: 34px;
   font-weight: 600;
   line-height: 47.6px;
+  @media (max-width: 980px) {
+    font-size: 28px;
+    width: auto;
+  }
+  @media (max-width: 768px) {
+    margin-top: 0;
+  }
 `;
 
 const Ratig = styled.div`
   display: flex;
   gap: 10px;
-  align-items: center;
 `;
 
 const RatingValue = styled.span``;
@@ -295,6 +339,7 @@ const CommentIcon = styled.span``;
 const CommentCount = styled.span``;
 
 const SizeSelection = styled.div`
+  width: 100%;
   margin: 40px 0;
 `;
 
@@ -316,7 +361,12 @@ const SizeGuidSpan = styled.span`
 `;
 
 const SizeOptions = styled.div`
+  display: flex;
+  align-items: center;
   margin: 20px 0;
+  @media (max-width: 320px) {
+    justify-content: space-between;
+  }
 `;
 
 const SizeButton = styled.button`
@@ -333,6 +383,9 @@ const SizeButton = styled.button`
     color: #ffffff;
     border: none;
   }
+  @media (min-width: 320px) {
+    margin-right: 10px;
+  }
 `;
 
 const ColorOption = styled.div`
@@ -348,17 +401,18 @@ const ColorSpan = styled.span`
 const ColorButtonsContainer = styled.div``;
 const CustomPadding = styled.span`
   margin: 20px;
+  width: 30px;
+  height: 30px;
   margin-left: 0px;
+  border-radius: 50%;
   display: inline-flex;
   justify-content: center;
   align-items: center;
   &:hover,
+  &:active,
   &:focus {
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
     border: 1px solid #3f4646;
-    border-radius: 50%;
+    outline: none;
   }
 `;
 
@@ -374,6 +428,12 @@ const ColorButton = styled.button`
 const PriceAndCartContiner = styled.div`
   display: flex;
   gap: 20px;
+  @media (max-width: 768px) {
+    flex-direction: row-reverse;
+  }
+  @media (max-width: 320px) {
+    justify-content: space-between;
+  }
 `;
 
 const CartButton = styled.button`
@@ -387,6 +447,11 @@ const CartButton = styled.button`
   padding: 12px 40px 12px 40px;
   border-radius: 8px;
   cursor: pointer;
+
+  @media (max-width: 320px) {
+    padding: 12px 20px 12px 20px;
+    font-size: 14px;
+  }
 `;
 
 const PriceSpan = styled.button`
@@ -410,10 +475,21 @@ const ShippingInfo = styled.div`
   grid-template-rows: repeat(2, 1fr);
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
+  @media (max-width: 980px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 320px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
 
 const Item = styled(Link)`
   text-decoration: none;
+  display: flex;
+  align-items: center;
 `;
 
 const ShippingIcon = styled.span`
@@ -427,7 +503,7 @@ const ShippingIcon = styled.span`
   border-radius: 50%;
 `;
 
-const ShippingText = styled.span`
+const Text = styled.p`
   font-size: 18px;
   font-weight: 500;
   line-height: 21.6px;

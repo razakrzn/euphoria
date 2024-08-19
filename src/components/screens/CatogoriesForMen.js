@@ -53,14 +53,19 @@ const Container = styled.div`
   width: 90%;
   margin: 0 auto;
   max-width: 1280px;
-  padding: 60px 0;
-`;
+f`;
 
 const TitleWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 15px;
   margin-bottom: 60px;
+  @media (max-width: 768px) {
+    margin-bottom: 30px;
+  }
+  @media (max-width: 480px) {
+    margin-bottom: 0px;
+  }
 `;
 const HeadIcon = styled.span`
   width: 6px;
@@ -73,26 +78,49 @@ const Heading = styled.h3`
   font-weight: 600;
   line-height: 33.5px;
   letter-spacing: 0.02em;
+  @media (max-width: 480px) {
+    font-size: 28px;
+  }
 `;
 const CardContainer = styled.div`
+  width: 100%;
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   gap: 40px;
+  flex-wrap: wrap;
+
+  @media (max-width: 680px) {
+    justify-content: center;
+  }
 `;
 
 const Card = styled.div`
-  flex: 1 1 calc(20% - 10px);
+  width: calc(20% - 0px);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 19.2px;
+  color: #3c4242;
+  @media (max-width: 680px) {
+    width: calc(28% - 0px);
+  }
+  @media (max-width: 480px) {
+    width: calc(45% - 0px);
+  }
+  @media (max-width: 320px) {
+    width: calc(43% - 0px);
+  }
 `;
 
 const ImageWrapper = styled(Link)`
-  width: 100%;
   text-decoration: none;
   display: inline-block;
   margin-bottom: 40px;
   transition: all 0.3s ease;
   &:hover {
     transform: scale(1.1); /* Zooms the wrapper */
+  }
+  @media (max-width: 768px) {
+    margin-bottom: 20px;
   }
 `;
 const Image = styled.img`
@@ -105,6 +133,9 @@ const InfoWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media (max-width: 768px) {
+    align-items: flex-start;
+  }
 `;
 const TextWrapper = styled.div``;
 const Title = styled(Link)`
@@ -115,30 +146,37 @@ const Title = styled(Link)`
   font-weight: 600;
   line-height: 19.2px;
   color: #3c4242;
+  @media (max-width: 768px) {
+    font-size: 16px;
+    margin: 0px;
+    margin-bottom: 5px;
+  }
+  @media (max-width: 320px) {
+    font-size: 14px;
+  }
 `;
 const Explore = styled.p`
   margin-top: 0px;
   color: #807d7e;
   font-size: 16px;
   font-weight: 600;
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
 `;
 const Button = styled.button`
   padding: 0;
   display: flex;
-  justify-content: flex-end;
   align-items: center;
   background: transparent;
   border: none;
-  width: 82.31px;
-  height: 36.58px;
   cursor: pointer;
 `;
-const IconArrow = styled.div``;
+const IconArrow = styled.span``;
 const StyledIcon = styled(Icon)`
-  width: 50px;
-  height: 50px;
   fill: #797979;
-  width: 17.88px;
+  width: 18px;
+  height: 18px;
 
   &:hover {
     fill: #797979; // Changes the color on hover
