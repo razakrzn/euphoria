@@ -25,7 +25,7 @@ function SimilarProducts() {
         <CardContainer>
           {items.map((item) => (
             <Card key={item.id}>
-              <ImageWrapper>
+              <ImageWrapper to={`/product/${item.id}`}>
                 <Image src={item.image} alt={item.title} />
               </ImageWrapper>
               <InfoWrapper>

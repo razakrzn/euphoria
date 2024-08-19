@@ -5,10 +5,12 @@ import { useEffect, useState } from "react";
 
 function ProductPageSportlight() {
   const { id } = useParams();
-  console.log({ id });
 
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     fetch("/data.json")
@@ -63,7 +65,7 @@ function ProductPageSportlight() {
           <ProductInfoWrapper>
             <MenuContainer>
               <Navlink to="/">
-                <Span>Shop</Span>
+                <p>Shop</p>
                 <Span>
                   <StyledImage
                     src={require("../assets/right-arrow-light.svg").default}
@@ -72,7 +74,7 @@ function ProductPageSportlight() {
                 </Span>
               </Navlink>
               <Navlink>
-                <Span>Women</Span>
+                <p>{selectedProduct.category}</p>
                 <Span>
                   <StyledImage
                     src={require("../assets/right-arrow-light.svg").default}
@@ -81,7 +83,7 @@ function ProductPageSportlight() {
                 </Span>
               </Navlink>
               <Navlink>
-                <Span>Top</Span>
+                <p>Top</p>
               </Navlink>
             </MenuContainer>
             <Title>{selectedProduct.title}</Title>
@@ -291,21 +293,30 @@ const ProductInfoWrapper = styled.div`
 
 const MenuContainer = styled.div`
   display: flex;
-  gap: 20px;
+  align-items: center;
   @media (max-width: 768px) {
     display: none;
   }
 `;
 const Navlink = styled(NavLink)`
-  display: inline-block;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   text-decoration: none;
+  p {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 21.6px;
+    margin-right: 5px;
+    color: #807d7e;
+  }
 `;
 const Span = styled.span`
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 21.6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-right: 5px;
-  color: #807d7e;
 `;
 
 const StyledImage = styled.img`

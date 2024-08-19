@@ -39,19 +39,29 @@ function Header() {
             </LogoContainer>
             <Menu className="item2">
               <MenuItem>
-                <MenuLink to="#">Shop</MenuLink>
+                <MenuLink to="/" activeClassName="active">
+                  Shop
+                </MenuLink>
               </MenuItem>
               <MenuItem>
-                <MenuLink to="/men">Men</MenuLink>
+                <MenuLink to="/men" activeClassName="active">
+                  Men
+                </MenuLink>
               </MenuItem>
               <MenuItem>
-                <MenuLink to="/women">Women</MenuLink>
+                <MenuLink to="/women" activeClassName="active">
+                  Women
+                </MenuLink>
               </MenuItem>
               <MenuItem>
-                <MenuLink to="#">Combos</MenuLink>
+                <MenuLink to="#" activeClassName="active">
+                  Combos
+                </MenuLink>
               </MenuItem>
               <MenuItem>
-                <MenuLink to="#">Joggers</MenuLink>
+                <MenuLink to="#" activeClassName="active">
+                  Joggers
+                </MenuLink>
               </MenuItem>
             </Menu>
           </Navbar>
@@ -132,8 +142,6 @@ const HeaderWrapper = styled.div`
     flex-wrap: wrap;
     justify-content: flex-start;
     position: relative;
-    .item2 {
-    }
     .item-move {
       flex-basis: 100%;
       margin-bottom: 20px;
@@ -184,6 +192,12 @@ const Navbar = styled.nav`
   transition: background-color 3.3s ease, transform 2.3s ease, opacity 2.3s ease,
     visibility 0s 2.3s;
 
+  @media (max-width: 980px) {
+    margin-left: 100px;
+  }
+  @media (max-width: 768px) {
+    margin-left: 0;
+  }
   @media (max-width: 680px) {
     flex-direction: ${({ $isOpen }) => ($isOpen ? "column" : "row")};
     display: ${({ $isOpen }) => ($isOpen ? "flex" : "none")};
@@ -196,7 +210,7 @@ const Navbar = styled.nav`
     width: 50%;
     transform: ${({ $isOpen }) => ($isOpen ? "scale(1.1)" : "scale(0.9)")};
     height: 100vh;
-    z-index: 1;
+    z-index: 2;
   }
 `;
 const Menu = styled.ul`
@@ -217,11 +231,15 @@ const Menu = styled.ul`
 `;
 const MenuItem = styled.li``;
 const MenuLink = styled(NavLink)`
-  text-decoration: none;
   color: #807d7e;
+  text-decoration: none;
+
   &:hover,
-  &:focus,
-  &:active {
+  &:focus {
+    color: #3c4242;
+  }
+
+  &.active {
     color: #3c4242;
   }
 `;
@@ -299,7 +317,11 @@ const UserIconContainer = styled.div`
   padding: 12px;
   border-radius: 8px;
   background-color: #f6f6f6;
+  transition: all 0.3s ease;
 
+  &:hover {
+    transform: scale(1.2); /* Zooms the wrapper */
+  }
   @media (max-width: 768px) {
   }
   @media (max-width: 320px) {

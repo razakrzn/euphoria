@@ -100,6 +100,12 @@ const LogoItem = styled(Link)`
   background-color: #ffffff;
   padding: 20px 40px;
   border-radius: 12px;
+  &:focus,
+  &:hover {
+    fill: #797979; // Changes the color on hover
+    transform: scale(1.1);
+    transition: transform 0.2s ease-in-out, fill 0.2s ease-in-out;
+  }
   @media (max-width: 680px) {
     padding: 10px 20px;
   }

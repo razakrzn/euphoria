@@ -26,7 +26,7 @@ function CategoriesForWomen() {
       <CardContainer>
         {items.map((item) => (
           <Card key={item.id}>
-            <ImageWrapper>
+            <ImageWrapper to={`/product/${item.id}`}>
               <Image src={item.image} alt={item.title} />
             </ImageWrapper>
             <InfoWrapper>
@@ -157,11 +157,18 @@ const Title = styled(Link)`
     font-size: 14px;
   }
 `;
-const Explore = styled.p`
+const Explore = styled(Link)`
+  display: block;
+  text-decoration: none;
   margin-top: 0px;
   color: #807d7e;
   font-size: 16px;
   font-weight: 600;
+  &:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s ease-in-out, fill 0.2s ease-in-out;
+  }
+
   @media (max-width: 768px) {
     font-size: 12px;
   }
@@ -183,7 +190,7 @@ const StyledIcon = styled(Icon)`
 
   &:hover {
     fill: #797979; // Changes the color on hover
-    transform: scale(1.1); // Slightly enlarges the icon on hover
+    transform: scale(1.1);
     transition: transform 0.2s ease-in-out, fill 0.2s ease-in-out;
   }
 `;

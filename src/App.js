@@ -4,8 +4,8 @@ import Home from "./components/screens/Home";
 import ProductDetails from "./components/screens/ProductDetails";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import CatogeriesForMen from "./components/screens/CatogoriesForMen";
-import CategoriesForWomen from "./components/screens/CategoriesForWomen";
+import Women from "./components/pages/Women";
+import Men from "./components/pages/Men";
 
 function App() {
   return (
@@ -14,8 +14,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/product/:id" element={<ProductDetails />} />
-          <Route path="/men" element={<CatogeriesForMen />} />
-          <Route path="/women" element={<CategoriesForWomen />} />
+          <Route path="/men" element={<Men />} />
+          <Route path="/women" element={<Women />} />
         </Routes>
       </Router>
     </div>

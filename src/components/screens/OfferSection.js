@@ -124,7 +124,7 @@ const Explore = styled(Link)`
   line-height: 30.13px;
   transition: all 0.3s ease;
   &:hover {
-    transform: scale(1.1); /* Zooms the wrapper */
+    transform: scale(1.1);
   }
 `;
 const BackgroundRight = styled.div`

@@ -35,7 +35,6 @@ function NewArival() {
           slidesToShow: 3,
           slidesToScroll: 3,
           infinite: true,
-          dots: true,
         },
       },
       {
@@ -69,7 +68,7 @@ function NewArival() {
           <Slider {...settings1}>
             {items.map((item) => (
               <Card key={item.id}>
-                <ImageWrapper>
+                <ImageWrapper to={`/product/${item.id}`}>
                   <Image src={item.image} alt={item.title} />
                 </ImageWrapper>
                 <Title>{item.title}</Title>
