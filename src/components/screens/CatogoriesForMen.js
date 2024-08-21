@@ -33,7 +33,7 @@ function CatogeriesForMen() {
               <InfoWrapper>
                 <TextWrapper>
                   <Title>{item.title}</Title>
-                  <Explore>Explore Now</Explore>
+                  <Explore>Explore Now!</Explore>
                 </TextWrapper>
                 <Button>
                   <IconArrow>
@@ -56,7 +56,7 @@ const Container = styled.div`
 f`;
 
 const TitleWrapper = styled.div`
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 15px;
   margin-bottom: 60px;
@@ -74,8 +74,10 @@ const HeadIcon = styled.span`
   background-color: #8a33fd;
 `;
 const Heading = styled.h3`
+  color: #3c4242;
   font-size: 34px;
-  font-weight: 600;
+  margin: 0px;
+  font-weight: 700;
   line-height: 33.5px;
   letter-spacing: 0.02em;
   @media (max-width: 480px) {
@@ -89,17 +91,20 @@ const CardContainer = styled.div`
   gap: 40px;
   flex-wrap: wrap;
 
-  @media (max-width: 680px) {
+  @media (max-width: 980px) {
     justify-content: center;
   }
 `;
 
 const Card = styled.div`
-  width: calc(20% - 0px);
+  width: calc(22% - 0px);
   font-size: 16px;
   font-weight: 600;
   line-height: 19.2px;
   color: #3c4242;
+  @media (max-width: 980px) {
+    width: calc(30% - 0px);
+  }
   @media (max-width: 680px) {
     width: calc(28% - 0px);
   }
@@ -112,9 +117,10 @@ const Card = styled.div`
 `;
 
 const ImageWrapper = styled(Link)`
+  width: 100%;
   text-decoration: none;
   display: inline-block;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   transition: all 0.3s ease;
   &:hover {
     transform: scale(1.1); /* Zooms the wrapper */
@@ -140,10 +146,10 @@ const InfoWrapper = styled.div`
 const TextWrapper = styled.div``;
 const Title = styled(Link)`
   display: inline-block;
-  margin: 10px 0px;
+  margin: 0px;
   text-decoration: none;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 800;
   line-height: 19.2px;
   color: #3c4242;
   @media (max-width: 768px) {
@@ -156,10 +162,13 @@ const Title = styled(Link)`
   }
 `;
 const Explore = styled.p`
-  margin-top: 0px;
-  color: #807d7e;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 500;
+  line-height: 27.93px;
+  letter-spacing: -0.04em;
+  text-align: left;
+  margin: 0px;
+  color: #807d7e;
   @media (max-width: 768px) {
     font-size: 12px;
   }

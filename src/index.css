@@ -12,11 +12,12 @@ code {
     monospace;
 }
 .swiper-pagination {
-  margin-bottom: 15px;
+  margin-bottom: 40px;
 }
 
 .swiper-button-prev,
 .swiper-button-next {
+  margin: 0 25px;
   color: #ffffff !important;
 }
 .swiper-pagination-bullet {
@@ -29,12 +30,13 @@ code {
   transform: scaleX(-1) !important;
 }
 
+.first-slider {
+}
+
 .first-slider .slick-slide {
   margin: 0;
 }
 .first-slider .slick-slide > div {
-  width: 80%;
-  margin: 0 auto;
 }
 
 .first-slider.slick-dots li button:before {
@@ -43,11 +45,18 @@ code {
 }
 
 .second-slider .slick-slide {
-  padding: 20px;
   box-sizing: border-box;
 }
-.first-slider .slick-dots {
-  display: none !important;
+
+.first-slider .slick-slide > div {
+  width: 80%;
+  margin: 0 auto;
+}
+.second-slider .slick-slide:nth-child(2n) {
+}
+
+.second-slider .slick-dots {
+  bottom: -41px !important;
 }
 
 .second-slider .slick-dots li button:before {
@@ -56,7 +65,8 @@ code {
 }
 
 .second-slider .slick-dots li.slick-active button:before {
-  color: #3c4242;
+  color: #3c4242 !important;
+  opacity: 10 !important;
 }
 
 .second-slider .slick-dots li {

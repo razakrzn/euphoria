@@ -87,9 +87,10 @@ const Container = styled.div`
   max-width: 1280px;
 `;
 const HeadWrapper = styled.div`
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 15px;
+  margin-bottom: 60px;
 `;
 const HeadIcon = styled.span`
   width: 6px;
@@ -98,8 +99,10 @@ const HeadIcon = styled.span`
   background-color: #8a33fd;
 `;
 const Heading = styled.h3`
+  color: #3c4242;
   font-size: 34px;
-  font-weight: 600;
+  margin: 0px;
+  font-weight: 700;
   line-height: 33.5px;
   letter-spacing: 0.02em;
   @media (max-width: 480px) {

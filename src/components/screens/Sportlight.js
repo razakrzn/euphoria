@@ -21,11 +21,6 @@ function Sportlight() {
         keyboard={true}
         modules={[Navigation, Pagination, Mousewheel, Keyboard]}
         className="mySwiper"
-        breakpoints={{
-          480: {
-            navigation: false, // Disable navigation at 480px or less
-          },
-        }}
       >
         <SwiperSlide>
           <Background>
@@ -67,7 +62,7 @@ const Container = styled.div`
 
 const Info = styled.div`
   max-width: 1230px;
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
   color: #fff;
   @media (max-width: 480px) {
@@ -77,8 +72,12 @@ const Info = styled.div`
 
 const Category = styled.h5`
   margin: 0;
-  color: #fff;
   font-size: 32px;
+  font-weight: 500;
+  line-height: 37.77px;
+  letter-spacing: 0.15738007426261902px;
+  text-align: left;
+
   @media (max-width: 480px) {
     font-size: 28px;
   }
@@ -86,6 +85,7 @@ const Category = styled.h5`
 
 const Heading = styled.h1`
   width: 439px;
+  margin: 20px 0;
   font-size: 78px;
   font-weight: 800;
   line-height: 93.62px;
@@ -95,7 +95,6 @@ const Heading = styled.h1`
     font-size: 54px;
     line-height: 68px;
     width: 350px;
-    margin: 20px 0;
   }
   @media (max-width: 480px) {
     width: 250px;
@@ -105,6 +104,8 @@ const Heading = styled.h1`
 `;
 
 const Color = styled.h4`
+  margin: 0;
+  margin-bottom: 40px;
   font-size: 32px;
   font-weight: 500;
   line-height: 47.21px;

@@ -195,7 +195,7 @@ const Container = styled.div`
   width: 90%;
   margin: 0 auto;
   max-width: 1280px;
-  padding: 60px 0;
+  padding: 40px 0;
   @media (max-width: 980px) {
     padding: 30px 0;
   }
@@ -254,8 +254,8 @@ const MenuTitle = styled.h3`
 `;
 const MenuLink = styled(Link)`
   font-size: 16px;
-  font-weight: 500;
-  line-height: 38px;
+  font-weight: 400;
+  line-height: 42px;
   text-decoration: none;
   color: #f6f6f6;
   @media (max-width: 680px) {
@@ -306,19 +306,31 @@ const SocialMediaIcon = styled.span`
   }
 `;
 const Image = styled.img``;
-const AppContainer = styled.div``;
+const AppContainer = styled.div`
+  padding-right: 100px;
+  @media (max-width: 768px) {
+    padding-right: 0;
+  }
+`;
 const AvalableApp = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 15px;
+
+  & > *:nth-child(2) {
+    margin-right: 25px;
+  }
 `;
 const Title = styled.h2`
+  margin: 0;
+  margin-bottom: 40px;
   font-size: 28.58px;
-  font-weight: 700;
+  font-weight: 600;
   color: #f6f6f6;
   @media (max-width: 680px) {
     text-align: center;
+    margin: 20px 0;
   }
 `;
 const AppIcon = styled(Link)``;
@@ -358,7 +370,7 @@ const CategoryWrapper = styled.div`
 `;
 const CategoryTitle = styled.h2`
   font-size: 28.58px;
-  font-weight: 700;
+  font-weight: 600;
   color: #f6f6f6;
   @media (max-width: 768px) {
     font-size: 24px;
@@ -371,6 +383,7 @@ const CategoryTitle = styled.h2`
   }
 `;
 const OptiomButton = styled.button`
+  cursor: pointer;
   border: none;
   background: none;
 `;
@@ -386,9 +399,9 @@ const BottomWrapper = styled.div`
 `;
 const Info = styled.p`
   margin: 0;
-  padding-top: 60px;
+  padding-top: 40px;
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 600;
   text-align: center;
   color: #ffffff;
   @media (max-width: 980px) {

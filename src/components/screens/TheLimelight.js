@@ -49,10 +49,14 @@ const Container = styled.div`
   width: 90%;
   margin: 0 auto;
   max-width: 1280px;
+  padding: 60px 0;
+  @media (max-width: 480px) {
+    padding-top: 0;
+  }
 `;
 
 const TitleWrapper = styled.div`
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 15px;
   margin-bottom: 60px;
@@ -70,8 +74,10 @@ const HeadIcon = styled.span`
   background-color: #8a33fd;
 `;
 const Heading = styled.h3`
+  color: #3c4242;
   font-size: 34px;
-  font-weight: 600;
+  margin: 0px;
+  font-weight: 700;
   line-height: 33.5px;
   letter-spacing: 0.02em;
   @media (max-width: 480px) {
@@ -82,7 +88,7 @@ const CardContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  gap: 40px;
+  gap: 20px;
 
   @media (max-width: 680px) {
     flex-wrap: wrap;
@@ -90,10 +96,13 @@ const CardContainer = styled.div`
 `;
 
 const Card = styled.div`
+  width: calc(22% - 0px);
   font-size: 16px;
   font-weight: 600;
   line-height: 19.2px;
   color: #3c4242;
+  @media (max-width: 680px) {
+  }
   @media (max-width: 480px) {
     width: calc(45% - 0px);
   }
@@ -103,9 +112,10 @@ const Card = styled.div`
 `;
 
 const ImageWrapper = styled(Link)`
+  width: 100%;
   text-decoration: none;
   display: inline-block;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   transition: all 0.3s ease;
   &:hover {
     transform: scale(1.1); /* Zooms the wrapper */
@@ -136,31 +146,30 @@ const InfoWrapper = styled.div`
 const TextWrapper = styled.div``;
 const Title = styled(Link)`
   display: inline-block;
-  margin: 10px 0px;
+  margin: 0px;
   text-decoration: none;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 800;
   line-height: 19.2px;
   color: #3c4242;
-
   @media (max-width: 768px) {
-    margin-top: 0px;
-  }
-  @media (max-width: 480px) {
     font-size: 14px;
-    margin: 0;
+    margin: 0px;
+    margin-bottom: 5px;
   }
   @media (max-width: 320px) {
     font-size: 14px;
   }
 `;
 const Explore = styled.p`
-  margin-top: 0px;
+  margin: 0px;
   color: #807d7e;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   @media (min-width: 768px) {
-    font-size: 14px;
+    font-size: 12px;
+    margin: 5px 0;
+    margin-top: 5px;
   }
   @media (max-width: 480px) {
     font-size: 12px;

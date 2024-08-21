@@ -37,7 +37,6 @@ const Container = styled.div`
   width: 90%;
   margin: 0 auto;
   max-width: 1280px;
-  padding: 60px 0;
 
   @media (max-width: 980px) {
     padding: 30px 0;
@@ -64,7 +63,8 @@ const Title = styled.h3`
 `;
 const Text = styled.p`
   color: #ffffff;
-  margin: 40px 0;
+  margin: 20px 0;
+  margin-bottom: 60px;
   font-size: 22px;
   font-weight: 400;
   text-align: center;

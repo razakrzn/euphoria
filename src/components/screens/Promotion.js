@@ -96,6 +96,10 @@ const Text = styled.h4`
 `;
 
 const Button = styled(Link)`
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 21.6px;
+  text-align: center;
   display: inline-block;
   color: #000;
   padding: 12px 44px 12px 44px;

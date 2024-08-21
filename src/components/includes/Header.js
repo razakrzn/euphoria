@@ -231,10 +231,15 @@ const Menu = styled.ul`
 `;
 const MenuItem = styled.li``;
 const MenuLink = styled(NavLink)`
+  // font-family: Causten;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 26.4px;
+  text-align: left;
+
   color: #807d7e;
   text-decoration: none;
-
-  &:hover,
+  font &:hover,
   &:focus {
     color: #3c4242;
   }

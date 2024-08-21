@@ -6,7 +6,7 @@ import Slider from "react-slick";
 function Feedback() {
   const settings2 = {
     dots: true,
-    infinite: true,
+    infinite: false,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 4,
@@ -28,6 +28,13 @@ function Feedback() {
           slidesToShow: 2,
           slidesToScroll: 2,
           initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 680,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
         },
       },
       {
@@ -92,22 +99,24 @@ function Feedback() {
         <div className="slider-container second-slider">
           <Slider {...settings2}>
             {feedback.map((item) => (
-              <div key={item.id}>
+              <StyledSlide key={item.id}>
                 <FeedbackWrapper>
-                  <Card>
-                    <UserAndRating>
-                      <UserImage>
-                        <Image src={item.image} alt={item.name} />
-                      </UserImage>
-                      <StarRating rating={item.rating} />
-                    </UserAndRating>
-                    <TextContainer>
-                      <Title>{item.name}</Title>
-                      <Text>{item.comment}</Text>
-                    </TextContainer>
-                  </Card>
+                  <CardContainer>
+                    <Card>
+                      <UserAndRating>
+                        <UserImage>
+                          <Image src={item.image} alt={item.name} />
+                        </UserImage>
+                        <StarRating rating={item.rating} />
+                      </UserAndRating>
+                      <TextContainer>
+                        <Title>{item.name}</Title>
+                        <Text>{item.comment}</Text>
+                      </TextContainer>
+                    </Card>
+                  </CardContainer>
                 </FeedbackWrapper>
-              </div>
+              </StyledSlide>
             ))}
           </Slider>
         </div>
@@ -119,19 +128,18 @@ const Container = styled.div`
   width: 90%;
   margin: 0 auto;
   max-width: 1280px;
-  padding: 60px 0;
+  padding-bottom: 120px;
   @media (max-width: 768px) {
-    padding: 30px 0;
+    padding-bottom: 100px;
   }
 `;
 
 const TitleWrapper = styled.div`
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 15px;
   margin-bottom: 60px;
   @media (max-width: 980px) {
-    margin-bottom: 0;
   }
 `;
 const HeadIcon = styled.span`
@@ -141,34 +149,46 @@ const HeadIcon = styled.span`
   background-color: #8a33fd;
 `;
 const Heading = styled.h3`
+  color: #3c4242;
   font-size: 34px;
-  font-weight: 600;
+  margin: 0px;
+  font-weight: 700;
   line-height: 33.5px;
   letter-spacing: 0.02em;
+  @media (max-width: 480px) {
+    font-size: 28px;
+  }
 `;
 
+const StyledSlide = styled.div``;
+
+const CardContainer = styled.div``;
+
 const FeedbackWrapper = styled.div`
+  width: calc(90% - 0px);
+  margin: 0 auto;
   display: flex;
 `;
 
 const Card = styled.div`
-  width: 100%;
-  height: 257px;
+  box-sizing: border-box;
+  height: 292px;
   padding: 20px;
   border-radius: 10px;
   border: 1.8px solid #bebcbd;
+
   @media (max-width: 1280px) {
-    height: 268px;
+    height: 300px;
   }
   @media (max-width: 980px) {
-    height: 345px;
+    height: 355px;
   }
   @media (max-width: 680px) {
     padding: 15px;
-    height: 258px;
+    height: 310px;
   }
   @media (max-width: 480px) {
-    height: 200px;
+    height: 243px;
   }
   @media (max-width: 320px) {
     height: 276px;
@@ -185,16 +205,15 @@ const Image = styled.img`
 `;
 const Stars = styled.span`
   display: flex;
-  gap: 10px;
+  gap: 8px;
 
   @media (max-width: 980px) {
-    gap: 0;
+    gap: 3px;
   }
 `;
 const Star = styled.img`
   width: 20px;
   height: 20px;
-  margin-right: 5px;
 `;
 const TextContainer = styled.div`
   width: 100%;

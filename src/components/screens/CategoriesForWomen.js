@@ -32,7 +32,7 @@ function CategoriesForWomen() {
             <InfoWrapper>
               <TextWrapper>
                 <Title>{item.title}</Title>
-                <Explore>Explore Now</Explore>
+                <Explore>Explore Now!</Explore>
               </TextWrapper>
               <Button>
                 <IconArrow>
@@ -51,14 +51,14 @@ const Container = styled.div`
   width: 90%;
   margin: 0 auto;
   max-width: 1280px;
-  padding: 30px 0;
+  padding: 60px 0;
   @media (max-width: 480px) {
     padding-top: 0;
   }
 `;
 
 const TitleWrapper = styled.div`
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 15px;
   margin-bottom: 60px;
@@ -76,8 +76,10 @@ const HeadIcon = styled.span`
   background-color: #8a33fd;
 `;
 const Heading = styled.h3`
+  color: #3c4242;
   font-size: 34px;
-  font-weight: 600;
+  margin: 0px;
+  font-weight: 700;
   line-height: 33.5px;
   letter-spacing: 0.02em;
   @media (max-width: 480px) {
@@ -88,7 +90,7 @@ const CardContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  gap: 40px;
+  gap: 20px;
 
   @media (max-width: 680px) {
     flex-wrap: wrap;
@@ -96,6 +98,7 @@ const CardContainer = styled.div`
 `;
 
 const Card = styled.div`
+  width: calc(22% - 0px);
   font-size: 16px;
   font-weight: 600;
   line-height: 19.2px;
@@ -111,9 +114,10 @@ const Card = styled.div`
 `;
 
 const ImageWrapper = styled(Link)`
+  width: 100%;
   text-decoration: none;
   display: inline-block;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   transition: all 0.3s ease;
   &:hover {
     transform: scale(1.1); /* Zooms the wrapper */
@@ -139,12 +143,14 @@ const InfoWrapper = styled.div`
 `;
 const TextWrapper = styled.div``;
 const Title = styled(Link)`
+  margin: 0;
+  font-size: 17.88px;
+  font-weight: 800;
+  line-height: 27.93px;
+  letter-spacing: -0.04em;
+  text-align: left;
   display: inline-block;
-  margin: 10px 0px;
   text-decoration: none;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 19.2px;
   color: #3c4242;
   @media (max-width: 768px) {
     font-size: 14px;
@@ -163,7 +169,11 @@ const Explore = styled(Link)`
   margin-top: 0px;
   color: #807d7e;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 500;
+  line-height: 27.93px;
+  letter-spacing: -0.04em;
+  text-align: left;
+
   &:hover {
     transform: scale(1.1);
     transition: transform 0.2s ease-in-out, fill 0.2s ease-in-out;
